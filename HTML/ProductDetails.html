@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="../CSS/modafinil.css">
+<link rel="stylesheet" href="../CSS/productDetails.css">
+
+
+<body>
+
+  <div id="navbar"></div>
+
+  <div class="container">
+    <div class="product-details">
+      <div class="m-details">
+        <div class="left">
+          <img id="detail-img">
+        </div>
+        <div class="right">
+          <h2 id="details-name"></h2>
+          <p id="details-price"></p>
+
+          <div class="product-info">
+
+            <table class="info-table">
+              <tr>
+                <th>Active Ingredient</th>
+                <td id="active-ingredient"></td>
+              </tr>
+
+              <tr>
+                <th>Manufacturer:</th>
+                <td id="manufacturer"></td>
+              </tr>
+
+              <tr>
+                <th>Indication:</th>
+                <td id="indication"></td>
+              </tr>
+
+              <tr>
+                <th>Strength</th>
+                <td id="strength"></td>
+              </tr>
+
+              <tr>
+                <th>Packaging</th>
+                <td id="packaging"></td>
+              </tr>
+
+              <tr>
+                <th>Delivery Time</th>
+                <td id="delivery-time"></td>
+              </tr>
+            </table>
+
+            <div class="description">
+              <p class="note">
+                <strong>Note:</strong> This Product MUST Require a Valid Prescription.
+              </p>
+
+              <p class="categories">
+                <strong>Categories:</strong>
+                <a id="category"
+                  style="color: rgba(0, 0, 0, 0.547); text-decoration: none;">
+                </a>
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <div class="pricing-section">
+
+        <div class="pricing-image">
+
+          <img id="pricing-img" alt="Product Image">
+
+        </div>
+
+        <div class="pricing-table-box">
+
+          <h2 id="pricing-title"></h2>
+
+          <table class="pricing-table">
+
+            <thead>
+
+              <tr>
+
+                <th>Pack Size</th>
+                <th>Price</th>
+                <th>Price/Unit</th>
+                <th>Quantity</th>
+                <th>Add To Cart</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody id="pricing-body">
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <h2>Alternative Medicines</h2>
+
+    <div id="alt-grid-container"></div>
+    <div id="product-description"></div>
+
+  </div>
+
+  <div id="footer"></div>
+
+  <script src="../JAVASCRIPT/NavBar&Footer.js"></script>
+   <script src="../JAVASCRIPT/products.js"></script>
+  <script src="../js/productDescription.js"></script>
+  <script src="../js/productPricing.js"></script>
+  <script src="../js/productDetails.js"></script>
+</body>
+
+</html>
