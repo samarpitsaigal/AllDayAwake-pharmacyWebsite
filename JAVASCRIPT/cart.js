@@ -30,7 +30,8 @@ function renderCart() {
                     type="number"
                     min="1"
                     value="${item.quantity}"
-                    onchange="updateQuantity(${index}, this.value)">
+                    onchange="updateQuantity(${index}, this.value)"
+                >
             </td>
 
             <td>$${total.toFixed(2)}</td>
