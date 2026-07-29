@@ -34,7 +34,7 @@ totalPrice.innerHTML = total
 
 
 emailjs.init({
-    publicKey: ""
+    publicKey: "iJgcwVeAgmiv679N5"
 });
 
 const form = document.getElementById("checkout-form");
@@ -43,8 +43,8 @@ form.addEventListener("submit", function (e) {
     e.preventDefault();
 
     emailjs.sendForm(
-        "",
-        "",
+        "service_lht3psz",
+        "template_sxyn56o",
         this
     ).then(() => {
         alert("Order Placed Successfully!");
