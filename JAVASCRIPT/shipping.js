@@ -25,7 +25,7 @@ orderItem.innerHTML = cart.map(p => {
         </div>
       </div>
       <div>
-        <p class="order-price">${lineTotal.toFixed(2)}</p>
+        <p class="order-price">$${lineTotal.toFixed(2)}</p>
       </div>
     </div>
     <hr>
