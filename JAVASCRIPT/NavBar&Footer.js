@@ -1,5 +1,12 @@
 console.log("NavBar&Footer.js Loaded");
 
+function updateCartCount() {
+  const cartItem = document.getElementById("cart-item");
+  if (!cartItem) return;
+  const count = JSON.parse(localStorage.getItem("cart")) || [];
+  cartItem.textContent = count.length;
+}
+
 fetch("../Components/NavBar.html")
   .then((response) => response.text())
   .then((data) => {
@@ -29,26 +36,28 @@ fetch("../Components/NavBar.html")
       document.body.classList.remove("no-scroll");
     });
 
-  const input = document.getElementById("search-input-items");
-const resultBox = document.getElementById("search-results");
-//console.log(document.getElementById("search-input-items"));
-// console.log(input);
-// console.log(products);
-input.addEventListener("input", function () {
-  console.log(this.value);
+    const input = document.getElementById("search-input-items");
+    const resultBox = document.getElementById("search-results");
+    //console.log(document.getElementById("search-input-items"));
+    // console.log(input);
+    // console.log(products);
+    input.addEventListener("input", function () {
+      console.log(this.value);
 
-  const value = this.value.toLowerCase().trim();
-  if(value === ""){
-      resultBox.style.display = "none";
-      resultBox.innerHTML = "";
-      return;
-  }
+      const value = this.value.toLowerCase().trim();
+      if (value === "") {
+        resultBox.style.display = "none";
+        resultBox.innerHTML = "";
+        return;
+      }
 
-  const filtered = products.filter(product =>
-      product.name.toLowerCase().includes(value)
-  );
+      const filtered = products.filter((product) =>
+        product.name.toLowerCase().includes(value),
+      );
 
-  resultBox.innerHTML = filtered.map(product=>`
+      resultBox.innerHTML = filtered
+        .map(
+          (product) => `
 
       <div class="search-item"
            onclick="openProduct('${product.id}')">
@@ -59,34 +68,31 @@ input.addEventListener("input", function () {
 
       </div>
 
-  `).join("");
+  `,
+        )
+        .join("");
 
-  resultBox.style.display = filtered.length ? "block" : "none";
+      resultBox.style.display = filtered.length ? "block" : "none";
+    });
 
-});
+    document.addEventListener("click", function (e) {
+      if (!document.querySelector(".search-input").contains(e.target)) {
+        resultBox.style.display = "none";
+      }
+    });
 
-document.addEventListener("click",function(e){
+    updateCartCount();
+  })
+  .catch((err) => console.error("NavBar fetch failed:", err));
 
-    if(!document.querySelector(".search-input").contains(e.target)){
+window.addEventListener("storage", updateCartCount);
 
-        resultBox.style.display="none";
-
-    }
-
-});
-
-  });
-
-  
 fetch("../Components/Footer.html")
   .then((response) => response.text())
   .then((data) => {
     document.getElementById("footer").innerHTML = data;
   });
 
-
-
-
-function openProduct(id){
-  window.location.href=`ProductDetails.html?id=${id}`
+function openProduct(id) {
+  window.location.href = `ProductDetails.html?id=${id}`;
 }

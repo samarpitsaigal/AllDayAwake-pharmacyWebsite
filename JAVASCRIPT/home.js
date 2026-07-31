@@ -1,39 +1,3 @@
-fetch("../Components/NavBar.html")
-  .then((response) => response.text())
-  .then((data) => {
-    document.getElementById("navbar").innerHTML = data;
-    const menuBtn = document.getElementById("menu-btn");
-    const drawer = document.getElementById("drawer1");
-    const overlay = document.getElementById("overlay");
-    const closeBtn = document.getElementById("closeBtn");
-
-    menuBtn.addEventListener("click", () => {
-      drawer.classList.add("active");
-      overlay.classList.add("active");
-      document.body.classList.add("no-scroll");
-    });
-
-    closeBtn.addEventListener("click", () => {
-      drawer.classList.remove("active");
-      overlay.classList.remove("active");
-      document.body.classList.remove("no-scroll");
-    });
-
-    console.log(menuBtn);
-
-    overlay.addEventListener("click", () => {
-      drawer.classList.remove("active");
-      overlay.classList.remove("active");
-      document.body.classList.remove("no-scroll");
-    });
-  });
-
-fetch("../Components/Footer.html")
-  .then((response) => response.text())
-  .then((data) => {
-    document.getElementById("footer").innerHTML = data;
-  });
-
 const bestSelling = document.getElementById("slider-container");
 const bestSellingproduct = products.filter((product) => {
   return product.bestSelling === true;

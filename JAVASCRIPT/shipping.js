@@ -10,6 +10,8 @@ const total = cart.reduce((sum, item) => {
 console.log(total);
 
 orderItem.innerHTML = cart.map(p => {
+  const lineTotal = Number(p.price.replace("$", "")) * Number(p.quantity);
+ 
   return `
     <div class="order-container">
       <div class="order-image-price">
@@ -19,10 +21,11 @@ orderItem.innerHTML = cart.map(p => {
         <div class="order-productName-packSize">
           <p class="order-productName">${p.name}</p>
           <p class="packSize">${p.packSize}</p>
+          <p class="order-quantity">Quantity: ${p.quantity}</p>
         </div>
       </div>
       <div>
-        <p class="order-price">${p.price}</p>
+        <p class="order-price">${lineTotal.toFixed(2)}</p>
       </div>
     </div>
     <hr>
@@ -30,7 +33,7 @@ orderItem.innerHTML = cart.map(p => {
 }).join("");
 
 const totalPrice = document.getElementById('total-price')
-totalPrice.innerHTML = total
+totalPrice.innerHTML = "$" + total.toFixed(2)
 
 
 emailjs.init({

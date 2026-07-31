@@ -123,7 +123,9 @@ body{
 .packSize{
   color: rgba(0, 0, 0, 0.512);
 }
-
+.order-quantity{
+  color: rgba(0, 0, 0, 0.512);
+}
 .order-price{
   font-weight: bold;
   font-size: 18px;
@@ -145,6 +147,7 @@ body{
   .order-price{
     text-align: end;
   }
+
 }
 
 .total-price-section{

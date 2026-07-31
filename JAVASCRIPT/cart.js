@@ -1,5 +1,4 @@
 const tbody = document.getElementById("cart-body");
-const grandTotal = document.getElementById("grand-total");
 
 function renderCart() {
 
@@ -29,12 +28,13 @@ function renderCart() {
                 <input
                     type="number"
                     min="1"
+                    id="qty-${index}"
                     value="${item.quantity}"
                     onchange="updateQuantity(${index}, this.value)"
                 >
             </td>
 
-            <td>$${total.toFixed(2)}</td>
+            <td id="subtotal-${index}">$${total.toFixed(2)}</td>
             
         </tr>
         
@@ -44,28 +44,47 @@ function renderCart() {
 
     }).join("");
 
-    // Sab products ka total
+    updateGrandTotal();
+
+}
+
+function updateGrandTotal() {
+
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const finalTotal = cart.reduce(
+        (sum, item) => sum + Number(item.price.replace("$", "")) * Number(item.quantity),
+        0
+    );
+
     document.getElementById("grand-total").textContent =
         "$" + finalTotal.toFixed(2);
 
 }
 
-renderCart();
-
-
 function updateQuantity(index, qty) {
 
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    cart[index].quantity = Number(qty);
+    const quantity = Math.max(1, Math.floor(Number(qty)) || 1);
+
+    cart[index].quantity = quantity;
 
     localStorage.setItem("cart", JSON.stringify(cart));
 
-    renderCart();
+    const input = document.getElementById(`qty-${index}`);
+    if (input) input.value = quantity;
+
+    const subtotal = document.getElementById(`subtotal-${index}`);
+    if (subtotal) {
+        subtotal.textContent =
+            "$" + (Number(cart[index].price.replace("$", "")) * quantity).toFixed(2);
+    }
+
+    updateGrandTotal();
 
 }
 
-renderCart();
 function removeItem(index) {
 
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -77,3 +96,5 @@ function removeItem(index) {
     renderCart();
 
 }
+
+renderCart();

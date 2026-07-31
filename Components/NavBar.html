@@ -38,12 +38,17 @@
           <div class="search-input">
             <input type="text" placeholder="Search for products.." autocomplete="off" id="search-input-items">
             <i class="fa-solid fa-magnifying-glass"></i>
-             <div id="search-results"></div>
+            <div id="search-results"></div>
           </div>
           <div class="signup">
-            <a>Signin / Signup</a>
+            <a class="signupSignin">Signin / Signup</a>
             <i class="fa-solid fa-user user-icon loginUser"></i>
-            <a href="../HTML/cart.html" style="color: black;"><i class="fa-solid fa-bag-shopping signup-icon"></i></a> <span id="grand-total">$0.00</span>
+            <a href="../HTML/cart.html" class="cart-link">
+                <i class="fa-solid fa-bag-shopping signup-icon"></i>
+                <span id="cart-item" class="cart-number"></span>
+            </a>
+
+            <!-- <span id="grand-total">$0.00</span> -->
             <div class="drawer-icon" id="menu-btn">
               <i class="fa-solid fa-bars menu-icon drawer"></i>
             </div>
@@ -69,9 +74,9 @@
             <div class="dropdown-medicine">
               <div class="dropdownList">
                 <ul>
-                  <li><a href="">Anaethesia -Local</a></li>
-                  <li><a href="">Blood Sugar</a></li>
-                  <li><a href="">Chronic Myeloid Leukemia</a></li>
+                  <li><a href="../HTML/allcategorymedicine.html?category=Anaesthesia - Local">Anaethesia -Local</a></li>
+                  <li><a href="../HTML/allcategorymedicine.html?category=blood-sugar">Blood Sugar</a></li>
+                  <li><a href="../HTML/allcategorymedicine.html?category=Chronic Myeloid Leukemia">Chronic Myeloid Leukemia</a></li>
                   <li><a href="">Chronic obstructive pulmonary</a></li>
                   <li><a href="">disorder (COPD)</a></li>
                 </ul>
@@ -87,7 +92,7 @@
               </div>
               <div class="dropdownList">
                 <ul>
-                  <li><a href="">Kidney/Liver</a></li>
+                  <li><a href="../HTML/allcategorymedicine.html?category=kidney-liver">Kidney/Liver</a></li>
                   <li><a href="">Kidney Care</a></li>
                   <li><a href="">Liver Care</a></li>
                   <li><a href="">Life Saving Drugs</a></li>
@@ -107,20 +112,26 @@
           </div>
           <div class="medicine-details">
             <ul>
-              <li class="dropdown"><a href="../HTML/smartPills.html"><p>Smart Pills +</p></a>
+              <li class="dropdown"><a href="../HTML/smartPills.html">
+                  <p>Smart Pills +</p>
+                </a>
                 <ul class="dropdown-menu">
                   <li><a href="../HTML/Modafinil.html">Modafinil</a></li>
                   <li><a href="../HTML/armodafinil.html">Armodafinil</a></li>
                 </ul>
               </li>
-              <li class="dropdown"> <a href="../HTML/pain.html"><p>Pain +</p></a>
+              <li class="dropdown"> <a href="../HTML/pain.html">
+                  <p>Pain +</p>
+                </a>
                 <ul class="dropdown-menu pain-dropdown">
-                  <li><a href="../HTML/../HTML/ProductDetails.html?id=Aspadol-100-mg-(Tapentadol)">Aspadol 100mg (Tapentadol)</a></li>
+                  <li><a href="../HTML/../HTML/ProductDetails.html?id=Aspadol-100-mg-(Tapentadol)">Aspadol 100mg
+                      (Tapentadol)</a></li>
                   <li><a href="../HTML/painoSoma.html">Pain O Soma</a></li>
                   <li><a href="../HTML/gabapentin.html">Gabapentin</a></li>
                 </ul>
               </li>
-              <li class="dropdown"><p>Zopiclone +</p>
+              <li class="dropdown">
+                <p>Zopiclone +</p>
                 <ul class="dropdown-menu pain-dropdown">
                   <li><a href="../HTML/ProductDetails.html?id=Nappie-7.5">Zopiclone (Nappie)</a></li>
                   <li><a href="../HTML/ProductDetails.html?id=Nappie-7.5">Zopiclone 7.5 MG uk</a></li>
@@ -130,7 +141,8 @@
                   <li><a href="../HTML/ProductDetails.html?id=Zopimax-7.5">Zopimax 7.5 mg</a></li>
                 </ul>
               </li>
-              <li class="dropdown"> <p>men's Health</p>
+              <li class="dropdown">
+                <p>men's Health</p>
                 <ul class="dropdown-menu pain-dropdown">
                   <li><a href="../HTML/ErectileDysfunction.html">Erectile Dysfunction</a></li>
                 </ul>
