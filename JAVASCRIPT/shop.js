@@ -32,5 +32,5 @@ function loadProducts(){
 loadProducts()
 
 function openProduct(id){
-  window.location.href = `productDetails.html?id=${id}`
+  window.location.href = `ProductDetails.html?id=${id}`
 }

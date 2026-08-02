@@ -131,7 +131,7 @@ function addToCart(id, name, packSize, price, qtyId,image) {
 
     localStorage.setItem("cart", JSON.stringify(cart));
 
-    window.location.href = "Cart.html";
+    window.location.href = "cart.html";
 
 }
 
