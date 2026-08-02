@@ -94,5 +94,5 @@ fetch("../Components/Footer.html")
   });
 
 function openProduct(id) {
-  window.location.href = `ProductDetails.html?id=${id}`;
+  window.location.href = `../HTML/ProductDetails.html?id=${id}`;
 }
