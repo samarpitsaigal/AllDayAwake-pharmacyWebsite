@@ -20,7 +20,20 @@ if (item) {
     
     const categoryLink = document.getElementById("category");
     categoryLink.textContent = item.category;
-    categoryLink.href = `../HTML/${item.category}.html`;
+    // mcategory k text pe click kr k us category k page pe jana
+    const categoryPages = {
+        armodafinil: "armodafinil.html",
+        modafinil: "Modafinil.html",
+        painosoma: "painoSoma.html",
+        gabapentin: "gabapentin.html",
+        erectiledysfunction: "ErectileDysfunction.html",
+        "erectile-dysfunction": "ErectileDysfunction.html",
+        zopiclone: "Zopiclone.html",
+        pain: "pain.html",
+    };
+    categoryLink.href = categoryPages[item.category]
+        ? `../HTML/${categoryPages[item.category]}`
+        : `../HTML/allcategorymedicine.html?category=${encodeURIComponent(item.category)}`;
 
     // Pricing Section
     document.getElementById("pricing-img").src = item.image;
